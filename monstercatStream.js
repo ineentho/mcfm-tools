@@ -70,6 +70,17 @@ function MonstercatStream(opts) {
     client.on('error', function(message) {
         console.log('Error', message);
     });
+
+    client.on('notice', function(nick, to, text, message) {
+        if (message.args[1] === 'Login unsuccessful') {
+            console.log('Login unsuccessful');
+            process.exit(1);
+        }
+    });
+
+    client.on('registered', function() {
+        console.log('Successfully connected');
+    });
 }
 MonstercatStream.prototype = new EventEmitter;
 
