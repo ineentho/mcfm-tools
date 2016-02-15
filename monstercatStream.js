@@ -67,13 +67,18 @@ function MonstercatStream(opts) {
         }
     });
 
+    client.on('quit', function(message) {
+        console.log('Quit', message);
+    });
+
     client.on('error', function(message) {
         console.log('Error', message);
     });
 
     client.on('notice', function(nick, to, text, message) {
-        if (message.args[1] === 'Login unsuccessful') {
+        if (message.args[1] === 'Login unsuccessful' || message.args[1] === 'Error logging in') {
             console.log('Login unsuccessful');
+            console.log(message);
             process.exit(1);
         }
     });
@@ -85,4 +90,3 @@ function MonstercatStream(opts) {
 MonstercatStream.prototype = new EventEmitter;
 
 module.exports = MonstercatStream;
-
