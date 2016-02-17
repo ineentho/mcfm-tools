@@ -67,6 +67,12 @@ function MonstercatStream(opts) {
         }
     });
 
+    if (opts.verbose) {
+        client.on('raw', function(message) {
+            console.log('[verbose]', message)
+        });
+    }
+
     client.on('quit', function(message) {
         console.log('Quit', message);
     });

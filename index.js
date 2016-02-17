@@ -40,6 +40,11 @@ var opts = nomnom
         metavar: 'FILE',
         help: 'Download album arts to FILE. This will automatically enable --arts'
     })
+    .option('verbose', {
+        abbr: 'v',
+        flag: true,
+        help: 'Print more debugging info'
+    })
     .parse();
 
 if (opts.saveArts) {
@@ -49,7 +54,8 @@ if (opts.saveArts) {
 var monstercat = new MonstercatStream({
     user: opts.user,
     oauth: opts.oauth,
-    spotifyAlbumArt: opts.arts
+    spotifyAlbumArt: opts.arts,
+    verbose: opts.verbose
 });
 
 function getData(song) {
