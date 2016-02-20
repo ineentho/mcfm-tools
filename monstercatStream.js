@@ -32,6 +32,7 @@ function MonstercatStream(opts) {
     var self = this;
 
     var client = new irc.Client('irc.twitch.tv', opts.user, {
+        port: 443,
         password: opts.oauth,
         channels: ['#monstercat']
     });
