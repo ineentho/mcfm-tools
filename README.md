@@ -37,7 +37,7 @@ You will now have a file called current-song.txt containging the current song li
 ### Customize the output format
 If you aren't happy with default "Song - Artist", you can easily change it with the `-F` parameter.
 ```
-mcfm -u user -o oauthkey -f current-song.txt -F "{song} by {artist}
+mcfm -u user -o oauthkey -f current-song.txt -F "{song} by {artist}"
 ```
 Allowed parameters: Song: {song}, Artist: {artist}, Spotify url: {spotify}, Album art url: {art} (if --arts is specified)
 
